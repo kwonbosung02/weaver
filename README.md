@@ -8,13 +8,13 @@
 
 ### 제작의도
 
-{{< figure alt="whitening" src="http://b.taevel.kr/images/iroc_2018/whitening.jpg" caption="백화현상으로 산호가 죽은 모습" >}}
+{{< figure alt="whitening" href="http://b.taevel.kr/images/iroc_2018/whitening.jpg" caption="백화현상으로 산호가 죽은 모습" >}}
 
 1. 산호지대에는 바다의 존재하는 생물의 5분의 1이상이 모여 살고있다.
 2. 현재, 산호지대는 바다의 온도가 높아져 백화현상으로 인해 파괴되어 가는 중이다.
 3. 산호지대가 파괴되면 바다 생물의 5분의 1이상이 삶의 터전을 잃게 된다.
 
-{{< figure alt="marine_litter" src="http://b.taevel.kr/images/iroc_2018/marine_litter.jpg" caption="산호지대 바다 위에 떠다니는 많은 양의 쓰레기" >}}
+{{< figure alt="marine_litter" href="http://b.taevel.kr/images/iroc_2018/marine_litter.jpg" caption="산호지대 바다 위에 떠다니는 많은 양의 쓰레기" >}}
 
 4. 바다에 버려지느 해양 쓰레기는 이제 지구촌의 문제가 되었다. 각국에서는 해양 쓰레기를 줄이기 위해 여러가지 대안을 내놓고 있으나, 해결되지 않고있다. 해양쓰레기는 바다를 오염시키는 것은 물론, 해양 생물들의 서식마저 위협한다.
 
@@ -31,7 +31,7 @@
 바다 위를 떠 다니면서 오호와 같은 재질로 감싸진 드라이 아이스를 떨어트린다.<br>
 드라이아이스가 기화되어 팽창하면 오호 막이 터지게 되면서 이산화 탄소가 퍼지게 된다.
 
-{{< figure alt="cf_1" src="http://b.taevel.kr/images/iroc_2018/cf_1.png" caption="탄산수소칼슘 화학식" >}}
+{{< figure alt="cf_1" href="http://b.taevel.kr/images/iroc_2018/cf_1.png" caption="탄산수소칼슘 화학식" >}}
 
 산호를 구성하는 탄산칼슘과 드라이아이스의 기화로 퍼지게되는 이산화탄소, 그리고 바다의 물이 만나 탄산수소칼슘을 생성하게 되는데 이를 통해 백화 성분을 녹여 산호가 살 수 있는 환경을 조성하고 바다의 pH농도를 낮추어 산호에 악영향을 주는 **해양산성화를 약화**시킨다.
 

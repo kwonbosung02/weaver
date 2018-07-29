@@ -1,5 +1,5 @@
 <template>
-  <div>
+  <div class="donate">
     <h1>Donate</h1>
   </div>
 </template>
@@ -11,7 +11,11 @@ export default {
 </script>
 
 <style lang="scss" scoped>
-h1 {
-  font-weight: normal;
+.danate {
+  margin: 60px;
+
+  h1 {
+    font-weight: normal;
+  }
 }
 </style>

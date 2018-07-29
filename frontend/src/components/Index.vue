@@ -1,12 +1,12 @@
 <template>
   <div class="index">
-    <div class="container">
+    <v-flex :key="`6${i}`" xs6>
       <h1>WEAVER</h1>
-      <h3>Proident labore do qui duis aliquip quis. Sint voluptate deserunt excepteur enim fugiat esse sit laborum officia nostrud. Quis reprehenderit irure officia sunt. Id reprehenderit esse laboris fugiat deserunt nulla. Non officia esse reprehenderit aliqua sunt occaecat tempor commodo nisi cupidatat sunt.</h3>
-    </div>
+      <p>Lorem magna non officia aliqua. Enim Lorem labore minim duis. Enim pariatur et tempor est nisi aute dolore consectetur adipisicing cupidatat dolor amet minim. Veniam dolore eiusmod proident non. Voluptate laboris enim et ut sit in ipsum non minim non ad. Est veniam excepteur minim nisi anim proident laboris culpa tempor laboris mollit. Anim duis do id ex ut aliquip magna occaecat eu excepteur.</p>
+    </v-flex>
     <div class="buttons">
-      <button v-on:click="moveMain()">START WEAVER</button>
-      <button v-on:click="moveDonate()">DONATE</button>
+      <v-btn v-on:click="moveMain()">START WEAVER</v-btn>
+      <v-btn v-on:click="moveDonate()">DONATE</v-btn>
     </div>
   </div>
 </template>
@@ -26,11 +26,12 @@ export default {
 </script>
 
 <style lang="scss" scoped>
-.container {
-  width: 50%;
+.index {
+  margin: 60px;
 
-  h1, h3 {
+  h1 {
     font-weight: normal;
+    margin-bottom: 1rem;
   }
 }
 </style>

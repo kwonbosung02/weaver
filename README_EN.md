@@ -8,7 +8,8 @@ For a detailed description of Weaver, see [here](https://github.com/taehoon02/we
 
 ```bash
 $ git clone https://github.com/taehoon02/weaver.git
-$ cd weaver && yarn install && yarn start
+$ cd weaver/frontend && yarn install && yarn build
+$ cd ../backend && yarn install && yarn start
 ```
 
 # License

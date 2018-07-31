@@ -25,8 +25,8 @@
         </v-list-group>
 
         <v-list-group
-          sub-group
           no-action
+          sub-group
         >
           <v-list-tile slot="activator">
             <v-list-tile-title>Functional Management</v-list-tile-title>

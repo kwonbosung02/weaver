@@ -7,14 +7,6 @@
       app
     >
       <v-list>
-        <v-list-group
-          no-action
-          sub-group
-        >
-          <v-list-tile slot="activator">
-            <v-list-tile-title>Check Weaver Location</v-list-tile-title>
-          </v-list-tile>
-
           <v-list-tile
             v-for="(item, i) in items"
             :key="i"
@@ -22,24 +14,6 @@
           >
             <v-list-tile-title v-text="item"></v-list-tile-title>
           </v-list-tile>
-        </v-list-group>
-
-        <v-list-group
-          no-action
-          sub-group
-        >
-          <v-list-tile slot="activator">
-            <v-list-tile-title>Functional Management</v-list-tile-title>
-          </v-list-tile>
-
-          <v-list-tile
-            v-for="(manage, i) in manages"
-            :key="i"
-            @click=""
-          >
-            <v-list-tile-title v-text="manage"></v-list-tile-title>
-          </v-list-tile>
-        </v-list-group>
       </v-list>
     </v-navigation-drawer>
 

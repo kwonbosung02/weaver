@@ -6,6 +6,62 @@
       fixed
       app
     >
+
+      <v-list>
+        <v-list-tile>
+          <v-layout row justify-center>
+            <v-btn color="primary" dark large @click.stop="registerWeaverDialog = true">위버 등록</v-btn>
+            <v-btn color="primary" dark large @click.stop="deleteWeaverDialog = true">위버 삭제</v-btn>
+
+            <v-dialog v-model="registerWeaverDialog" max-width="740px">
+              <v-card>
+                <v-card-title>
+                  <span class="headline">위버 등록</span>
+                </v-card-title>
+                <v-card-text>
+                  <v-container grid-list-md>
+                    <v-layout wrap>
+                      <v-flex xs12>
+                        <v-text-field label="위버 이름을 입력하세요.." required></v-text-field>
+                      </v-flex>
+                      <v-flex xs10>
+                        <v-text-field label="위버 위치를 가져오세요.." hint="Press the btn"></v-text-field>
+                      </v-flex>
+                      <v-flex xs2>
+                        <v-btn color="primary">GET</v-btn>
+                      </v-flex>
+                    </v-layout>
+                  </v-container>
+                </v-card-text>
+                <v-card-actions>
+                  <v-btn color="primary" flat @click.stop="registerWeaverDialog=false">닫기</v-btn>
+                  <v-btn color="primary" flat @click.stop="registerWeaverDialog=false">등록</v-btn>
+                </v-card-actions>
+              </v-card>
+            </v-dialog>
+
+            <v-dialog v-model="deleteWeaverDialog" max-width="740px">
+              <v-card>
+                <v-card-title>
+                  <span class="headline">위버 삭제</span>
+                </v-card-title>
+                <v-card-text>
+                  <v-select
+                    :items="items"
+                    label="삭제할 위버를 선택하세요.."
+                    item-value="text"
+                  ></v-select>
+                </v-card-text>
+                <v-card-actions>
+                  <v-btn color="primary" flat @click.stop="deleteWeaverDialog=false">닫기</v-btn>
+                  <v-btn color="primary" flat @click.stop="deleteWeaverDialog=false">삭제</v-btn>
+                </v-card-actions>
+              </v-card>
+            </v-dialog>
+          </v-layout>
+        </v-list-tile>
+      </v-list>
+
       <v-list>
           <v-list-tile
             v-for="(item, i) in items"
@@ -25,28 +81,11 @@
       fixed
     >
       <v-toolbar-title style="width: 300px" class="ml-0 pl-3">
-        <span class="hidden-sm-and-down">WEAVER Management</span>
+        <span id="title" class="hidden-sm-and-down">WEAVER Management</span>
       </v-toolbar-title>
-      <v-text-field
-        flat
-        solo-inverted
-        hide-details
-        prepend-inner-icon="fa-search"
-        label="Search"
-        class="hidden-sm-and-down"
-      ></v-text-field>
       <v-spacer></v-spacer>
       <v-btn icon>
-        <v-icon size="18px">fa-shopping-cart</v-icon>
-      </v-btn>
-      <v-btn icon>
         <v-icon size="18px">fa-info-circle</v-icon>
-      </v-btn>
-      <v-btn icon>
-        <v-icon size="18px">fa-question-circle</v-icon>
-      </v-btn>
-      <v-btn icon>
-        <v-icon size="18px">fa-comment</v-icon>
       </v-btn>
       <v-btn icon>
         <v-icon size="18px">fa-cog</v-icon>
@@ -54,8 +93,8 @@
     </v-toolbar>
     <v-content>
       <v-container fluid fill-height>
-        <v-layout justify-center align-center>
-          <main-map></main-map>
+        <v-layout>
+          <info-weaver></info-weaver>
         </v-layout>
       </v-container>
     </v-content>
@@ -63,29 +102,32 @@
 </template>
 
 <script>
-import MainMap from '@/components/MainMap'
+import InfoWeaver from "@/components/InfoWeaver";
 
 export default {
   components: {
-    MainMap
+    InfoWeaver
   },
   data: () => ({
-    dialog: false,
     drawer: null,
-    items: [
-      'Weaver-A',
-      'Weaver-B',
-      'Weaver-C',
-      'Weaver-D'
-    ],
-    manages: [
-      'Modify Path',
-      'Adjust Dry Ice Drop Cycle',
-      'Adjust Trash Cleaning Cycle'
-    ]
+    registerWeaverDialog: false,
+    deleteWeaverDialog: false,
+    adjustDryIceDropCycleDialog: false,
+    adjustTrashCleaningCycleDialog: false,
+    items: ["위버A", "위버B", "위버C", "위버D"]
   }),
   props: {
     source: String
   }
-}
+};
 </script>
+
+<style lang="scss">
+#inspire {
+  font-family: "NanumSquareRound", sans-serif;
+
+  #title {
+    font-weight: 700;
+  }
+}
+</style>

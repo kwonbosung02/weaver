@@ -9,7 +9,7 @@
           <GmapMap
             :center="{lat: 35.907867, lng: 128.612694}"
             :zoom="18"
-            style="width: 1280px; height: 580px"
+            style="width: 1280px; height: 560px"
           >
             <GmapMarker
               :key="index"

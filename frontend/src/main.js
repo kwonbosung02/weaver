@@ -9,12 +9,20 @@ import 'vuetify/dist/vuetify.min.css'
 import 'font-awesome/css/font-awesome.css'
 import 'material-design-icons-iconfont/dist/material-design-icons.css'
 
+import * as VueGoogleMaps from 'vue2-google-maps'
+
 import axios from 'axios'
 Vue.prototype.$http = axios
 
 Vue.config.productionTip = false
 
 Vue.use(Vuetify)
+Vue.use(VueGoogleMaps, {
+  load: {
+    key: 'AIzaSyBfG0fyWxT_0wX8W9248N9M0vjislygsQA',
+    libraries: 'places'
+  }
+})
 
 /* eslint-disable no-new */
 new Vue({

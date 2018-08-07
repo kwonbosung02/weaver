@@ -3,14 +3,13 @@
     <v-layout column>
       <v-flex>
         <h1>위버 정보</h1>
-        <h2>위버 이름 : </h2>
-        <h2>위버 위치 : </h2>
+        <h2>위버 이름 : 위버A</h2>
+        <h2>위버 위치 : 대구 엑스코 35°54'28.3"N 128°36'45.7"E</h2>
         <p>
           <GmapMap
-            :center="{lat:39.559156, lng:-132.060323}"
-            :zoom="5"
-            map-type-id="terrain"
-            style="width: 640px; height: 300px"
+            :center="{lat: 35.907867, lng: 128.612694}"
+            :zoom="18"
+            style="width: 1280px; height: 560px"
           >
             <GmapMarker
               :key="index"
@@ -26,7 +25,7 @@
       <v-flex>
         <h1>위버 기능</h1>
         <v-flex>
-          <v-layout align-start justify-center column>
+          <v-layout align-start justify-start row>
             <v-btn large @click.stop="adjustDryIceDropCycleDialog = true">드라이 아이스 투하 주기 설정</v-btn>
             <v-btn large @click.stop="adjustTrashCleaningCycleDialog = true">쓰레기청소 주기 설정</v-btn>
 
@@ -81,14 +80,21 @@ export default {
   name: "info",
   mounted () {
     this.$refs.mapRef.$mapPromise.then((map) => {
-      map.panTo({lat: 39.559156, lng: -132.060323})
+      map.panTo({lat: 35.907867, lng: 128.612694})
     })
   },
   data: () => ({
     adjustDryIceDropCycleDialog: false,
     adjustTrashCleaningCycleDialog: false,
     timesDI: ["12시간", "18시간", "1일(권장)", "2일", "3일", "4일", "5일"],
-    timesTC: ["1시간", "3시간(권장)", "5시간", "7시간"]
+    timesTC: ["1시간", "3시간(권장)", "5시간", "7시간"],
+
+    center: {lat: 35.907867, lng: 128.612694},
+    markers: [{
+      position: {lat: 35.907867, lng: 128.612694}
+    }, {
+      position: {lat: 35.907867, lng: 128.612694}
+    }]
   })
 };
 </script>
@@ -103,7 +109,7 @@ export default {
   }
 
   p {
-    margin: 10px 0 30px 0;
+    margin: 10px 0 20px 0;
   }
 }
 </style>

@@ -14,13 +14,13 @@
         <nav>
           <ul>
             <li>
-              <a href="main">START WEAVER</a>
+              <a href="#/main">START WEAVER</a>
             </li>
             <li>
-              <a href="donate">DONATE</a>
+              <a href="#/donate">DONATE</a>
             </li>
             <li>
-              <a href="purchase">PURCHASE</a>
+              <a href="#/purchase">PURCHASE</a>
             </li>
           </ul>
         </nav>
@@ -40,7 +40,7 @@ export default {
 };
 </script>
 
-<style>
+<style scoped>
 @import url("https://fonts.googleapis.com/css?family=Source+Sans+Pro:300italic,600italic,300,600");
 
 /*
@@ -89,7 +89,7 @@ html {
 }
 
 body {
-  color: #ffffff;
+  color: #fff;
   font-family: "Source Sans Pro", sans-serif;
   font-weight: 300;
   font-size: 1rem;
@@ -108,6 +108,7 @@ a {
   border-bottom: dotted 1px rgba(255, 255, 255, 0.5);
   text-decoration: none;
   color: inherit;
+  color: #fff;
 }
 
 a:hover {
@@ -115,7 +116,7 @@ a:hover {
 }
 
 h1 {
-  color: #ffffff;
+  color: #fff;
   font-weight: 600;
   line-height: 1.5;
   margin: 0 0 1rem 0;
@@ -124,7 +125,7 @@ h1 {
 }
 
 h1.major {
-  border-bottom: solid 1px #ffffff;
+  border-bottom: solid 1px #fff;
   width: -moz-max-content;
   width: -webkit-max-content;
   width: -ms-max-content;
@@ -265,7 +266,7 @@ h1 {
   left: calc(50% - 1px);
   width: 1px;
   height: calc(3.5rem + 1px);
-  background: #ffffff;
+  background: #fff;
 }
 
 #header > :first-child {
@@ -280,7 +281,7 @@ h1 {
   width: 5.5rem;
   height: 5.5rem;
   line-height: 5.5rem;
-  border: solid 1px #ffffff;
+  border: solid 1px #fff;
   border-radius: 100%;
 }
 
@@ -292,7 +293,7 @@ h1 {
 
 #header .content {
   border-style: solid;
-  border-color: #ffffff;
+  border-color: #fff;
   border-top-width: 1px;
   border-bottom-width: 1px;
   max-width: 100%;
@@ -325,6 +326,7 @@ h1 {
   letter-spacing: 0.2rem;
   font-size: 0.8rem;
   line-height: 2;
+  color: #fff;
 }
 
 #header nav ul {
@@ -335,13 +337,13 @@ h1 {
   margin-bottom: 0;
   list-style: none;
   padding-left: 0;
-  border: solid 1px #ffffff;
+  border: solid 1px #fff;
   border-radius: 4px;
 }
 
 #header nav ul li {
   padding-left: 0;
-  border-left: solid 1px #ffffff;
+  border-left: solid 1px #fff;
 }
 
 #header nav ul li:first-child {
@@ -358,6 +360,7 @@ h1 {
   letter-spacing: 0.2rem;
   font-size: 0.8rem;
   border-bottom: 0;
+  color: #fff;
 }
 
 #header nav ul li a:hover {
@@ -376,7 +379,7 @@ h1 {
   left: calc(50% - 1px);
   width: 1px;
   height: 100%;
-  background: #ffffff;
+  background: #fff;
 }
 
 #header nav.use-middle ul li.is-middle {
@@ -415,6 +418,7 @@ h1 {
 
   #header .content p {
     line-height: 1.875;
+    color: #fff;
   }
 }
 
@@ -438,7 +442,7 @@ h1 {
 
   #header nav ul li {
     border-left: 0;
-    border-top: solid 1px #ffffff;
+    border-top: solid 1px #fff;
   }
 
   #header nav ul li:first-child {
@@ -450,6 +454,7 @@ h1 {
     line-height: 3rem;
     min-width: 0;
     width: 100%;
+    color: #fff;
   }
 
   #header nav.use-middle:after {
@@ -472,6 +477,7 @@ h1 {
   max-width: 100%;
   margin-top: 2rem;
   text-align: center;
+  color: #fff;
 }
 
 #footer .copyright {
@@ -480,5 +486,6 @@ h1 {
   opacity: 0.75;
   margin-bottom: 0;
   text-transform: uppercase;
+  color: #fff;
 }
 </style>

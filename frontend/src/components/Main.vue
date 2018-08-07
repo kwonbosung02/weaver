@@ -7,7 +7,7 @@
       app
     >
 
-      <v-list>
+      <!--<v-list>
         <v-list-tile>
           <v-layout row justify-center>
             <v-btn color="primary" dark large @click.stop="registerWeaverDialog = true">위버 등록</v-btn>
@@ -62,6 +62,14 @@
             </v-dialog>
           </v-layout>
         </v-list-tile>
+      </v-list>-->
+
+      <v-list>
+        <v-list-tile>
+          <v-list-title>
+            위버 목록
+          </v-list-title>
+        </v-list-tile>
       </v-list>
 
       <v-list>
@@ -114,7 +122,7 @@ export default {
     drawer: null,
     registerWeaverDialog: false,
     deleteWeaverDialog: false,
-    items: ["위버A", "위버B", "위버C", "위버D"]
+    items: ["위버A"]
   }),
   props: {
     source: String

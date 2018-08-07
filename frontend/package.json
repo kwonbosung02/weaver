@@ -17,6 +17,7 @@
     "font-awesome": "^4.7.0",
     "vue": "^2.5.2",
     "vue-router": "^3.0.1",
+    "vue2-google-maps": "^0.10.1",
     "vuetify": "^1.1.8",
     "webfontloader": "^1.6.28"
   },

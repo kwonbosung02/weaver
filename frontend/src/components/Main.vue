@@ -34,6 +34,7 @@
                   </v-container>
                 </v-card-text>
                 <v-card-actions>
+                  <v-spacer></v-spacer>
                   <v-btn color="primary" flat @click.stop="registerWeaverDialog=false">닫기</v-btn>
                   <v-btn color="primary" flat @click.stop="registerWeaverDialog=false">등록</v-btn>
                 </v-card-actions>
@@ -53,6 +54,7 @@
                   ></v-select>
                 </v-card-text>
                 <v-card-actions>
+                  <v-spacer></v-spacer>
                   <v-btn color="primary" flat @click.stop="deleteWeaverDialog=false">닫기</v-btn>
                   <v-btn color="primary" flat @click.stop="deleteWeaverDialog=false">삭제</v-btn>
                 </v-card-actions>
@@ -112,8 +114,6 @@ export default {
     drawer: null,
     registerWeaverDialog: false,
     deleteWeaverDialog: false,
-    adjustDryIceDropCycleDialog: false,
-    adjustTrashCleaningCycleDialog: false,
     items: ["위버A", "위버B", "위버C", "위버D"]
   }),
   props: {

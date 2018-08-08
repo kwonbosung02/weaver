@@ -67,7 +67,7 @@
       <v-list>
         <v-list-tile>
           <v-list-title>
-            위버 목록
+            WEAVER 목록
           </v-list-title>
         </v-list-tile>
       </v-list>
@@ -91,7 +91,7 @@
       fixed
     >
       <v-toolbar-title style="width: 300px" class="ml-0 pl-3">
-        <span id="title" class="hidden-sm-and-down">WEAVER Management</span>
+        <span id="title" class="hidden-sm-and-down">WEAVER 관리자</span>
       </v-toolbar-title>
       <v-spacer></v-spacer>
       <v-btn icon>
@@ -122,7 +122,7 @@ export default {
     drawer: null,
     registerWeaverDialog: false,
     deleteWeaverDialog: false,
-    items: ["위버A"]
+    items: ["WEAVER-A"]
   }),
   props: {
     source: String

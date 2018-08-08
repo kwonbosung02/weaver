@@ -2,14 +2,14 @@
   <div id="info">
     <v-layout column>
       <v-flex>
-        <h1>위버 정보</h1>
-        <h2>위버 이름 : 위버A</h2>
-        <h2>위버 위치 : 대구 엑스코 35°54'28.3"N 128°36'45.7"E</h2>
+        <h1>WEAVER 정보</h1>
+        <h2>WEAVER 이름 : WEAVER-A</h2>
+        <h2>WEAVER 위치 : 대구 엑스코 35°54'28.3"N 128°36'45.7"E</h2>
         <p>
           <GmapMap
             :center="{lat: 35.907867, lng: 128.612694}"
             :zoom="18"
-            style="width: 1280px; height: 560px"
+            style="width: 1480px; height: 540px"
           >
             <GmapMarker
               :key="index"
@@ -23,7 +23,7 @@
         </p>
       </v-flex>
       <v-flex>
-        <h1>위버 기능</h1>
+        <h1>WEAVER 기능</h1>
         <v-flex>
           <v-layout align-start justify-start row>
             <v-btn large @click.stop="adjustDryIceDropCycleDialog = true">드라이 아이스 투하 주기 설정</v-btn>
@@ -37,14 +37,14 @@
                 <v-card-text>
                   <v-select
                     :items="timesDI"
-                    label="시간 주기를 선택하세요.."
+                    label="시간 주기를 설정해주세요.."
                     item-value="text"
                   ></v-select>
                 </v-card-text>
                 <v-card-actions>
                   <v-spacer></v-spacer>
                   <v-btn color="primary" flat @click.stop="adjustDryIceDropCycleDialog=false">닫기</v-btn>
-                  <v-btn color="primary" flat @click.stop="adjustDryIceDropCycleDialog=false">확인</v-btn>
+                  <v-btn color="primary" flat @click.stop="adjustDryIceDropCycleDialog=false">저장</v-btn>
                 </v-card-actions>
               </v-card>
             </v-dialog>
@@ -57,14 +57,14 @@
                 <v-card-text>
                   <v-select
                     :items="timesTC"
-                    label="시간 주기를 선택하세요.."
+                    label="시간 주기를 설정하세요.."
                     item-value="text"
                   ></v-select>
                 </v-card-text>
                 <v-card-actions>
                   <v-spacer></v-spacer>
                   <v-btn color="primary" flat @click.stop="adjustTrashCleaningCycleDialog=false">닫기</v-btn>
-                  <v-btn color="primary" flat @click.stop="adjustTrashCleaningCycleDialog=false">확인</v-btn>
+                  <v-btn color="primary" flat @click.stop="adjustTrashCleaningCycleDialog=false">저장</v-btn>
                 </v-card-actions>
               </v-card>
             </v-dialog>

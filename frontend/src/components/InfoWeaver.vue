@@ -26,8 +26,14 @@
         <h1>WEAVER 기능</h1>
         <v-flex>
           <v-layout align-start justify-start row>
-            <v-btn large @click.stop="adjustCapsuleDropCycleDialog = true">캡슐 투하 주기 설정</v-btn>
-            <v-btn large @click="smControl()">서브 모터 제어</v-btn>
+            <v-tooltip bottom>
+              <v-btn slot="activator" large @click.stop="adjustCapsuleDropCycleDialog = true">캡슐 투하 주기 설정</v-btn>
+              <span>캡슐을 자동으로 투하하기 위한 설정입니다.</span>
+            </v-tooltip>
+            <v-tooltip bottom>
+              <v-btn slot="activator" large @click="smControl()">캡슐 투하</v-btn>
+              <span>클릭 시 캡슐을 수동으로 투하합니다.</span>
+            </v-tooltip>
 
             <v-dialog v-model="adjustCapsuleDropCycleDialog" max-width="740px">
               <v-card>
@@ -35,6 +41,11 @@
                   <span class="headline">캡슐 투하 주기 설정</span>
                 </v-card-title>
                 <v-card-text>
+                  <v-switch
+                    :label="`캡슐 투하 : ${capsuleStatus.toString()}`"
+                    v-model="capsuleStatus"
+                    color="primary"
+                  ></v-switch>
                   <v-select
                     :items="timesDI"
                     label="시간 주기를 설정해주세요.."
@@ -90,7 +101,8 @@ export default {
       position: {lat: 35.907867, lng: 128.612694}
     }, {
       position: {lat: 35.907867, lng: 128.612694}
-    }]
+    }],
+    capsuleStatus: false
   }),
   methods: {
     smControl () {

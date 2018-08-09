@@ -26,13 +26,13 @@
         <h1>WEAVER 기능</h1>
         <v-flex>
           <v-layout align-start justify-start row>
-            <v-btn large @click.stop="adjustDryIceDropCycleDialog = true">드라이 아이스 투하 주기 설정</v-btn>
-            <v-btn large @click.stop="adjustTrashCleaningCycleDialog = true">쓰레기청소 주기 설정</v-btn>
+            <v-btn large @click.stop="adjustCapsuleDropCycleDialog = true">캡슐 투하 주기 설정</v-btn>
+            <v-btn large @click="smControl()">서브 모터 제어</v-btn>
 
-            <v-dialog v-model="adjustDryIceDropCycleDialog" max-width="740px">
+            <v-dialog v-model="adjustCapsuleDropCycleDialog" max-width="740px">
               <v-card>
                 <v-card-title>
-                  <span class="headline">드라이 아이스 투하 주기 설정</span>
+                  <span class="headline">캡슐 투하 주기 설정</span>
                 </v-card-title>
                 <v-card-text>
                   <v-select
@@ -43,28 +43,8 @@
                 </v-card-text>
                 <v-card-actions>
                   <v-spacer></v-spacer>
-                  <v-btn color="primary" flat @click.stop="adjustDryIceDropCycleDialog=false">닫기</v-btn>
-                  <v-btn color="primary" flat @click.stop="adjustDryIceDropCycleDialog=false">저장</v-btn>
-                </v-card-actions>
-              </v-card>
-            </v-dialog>
-
-            <v-dialog v-model="adjustTrashCleaningCycleDialog" max-width="740px">
-              <v-card>
-                <v-card-title>
-                  <span class="headline">쓰레기청소 주기 설정</span>
-                </v-card-title>
-                <v-card-text>
-                  <v-select
-                    :items="timesTC"
-                    label="시간 주기를 설정하세요.."
-                    item-value="text"
-                  ></v-select>
-                </v-card-text>
-                <v-card-actions>
-                  <v-spacer></v-spacer>
-                  <v-btn color="primary" flat @click.stop="adjustTrashCleaningCycleDialog=false">닫기</v-btn>
-                  <v-btn color="primary" flat @click.stop="adjustTrashCleaningCycleDialog=false">저장</v-btn>
+                  <v-btn color="primary" flat @click.stop="adjustCapsuleDropCycleDialog=false">닫기</v-btn>
+                  <v-btn color="primary" flat @click.stop="adjustCapsuleDropCycleDialog=false">저장</v-btn>
                 </v-card-actions>
               </v-card>
             </v-dialog>
@@ -76,6 +56,24 @@
 </template>
 
 <script>
+import firebase from 'firebase'
+
+let config = {
+  apiKey: 'AIzaSyDUWZHtbSEhi62wM6oZ5_C8j4LHTE0C9GI',
+  authDomain: 'weaver-212606.firebaseapp.com',
+  databaseURL: 'https://weaver-212606.firebaseio.com',
+  projectId: 'weaver-212606',
+  storageBucket: 'weaver-212606.appspot.com',
+  messagingSenderId: '675639036437'
+}
+firebase.initializeApp(config)
+
+var database = firebase.database()
+var firebaseRef = firebase.database().ref("smStatus")
+firebaseRef.set(0)
+
+var smStatus
+
 export default {
   name: "info",
   mounted () {
@@ -84,10 +82,8 @@ export default {
     })
   },
   data: () => ({
-    adjustDryIceDropCycleDialog: false,
-    adjustTrashCleaningCycleDialog: false,
+    adjustCapsuleDropCycleDialog: false,
     timesDI: ["12시간", "18시간", "1일(권장)", "2일", "3일", "4일", "5일"],
-    timesTC: ["1시간", "3시간(권장)", "5시간", "7시간"],
 
     center: {lat: 35.907867, lng: 128.612694},
     markers: [{
@@ -95,7 +91,20 @@ export default {
     }, {
       position: {lat: 35.907867, lng: 128.612694}
     }]
-  })
+  }),
+  methods: {
+    smControl () {
+      var millisec = 500;
+      setTimeout(function() {
+        if (smStatus == 1) {
+          firebaseRef.set(0)
+          smStatus = 0
+        }
+      }, millisec)
+      firebaseRef.set(1)
+      smStatus = 1
+    }
+  }
 };
 </script>
 

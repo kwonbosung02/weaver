@@ -8,10 +8,10 @@
     >
 
       <v-list>
-        <!--<v-list-tile>
+        <v-list-tile>
           <v-layout row justify-center>
-            <v-btn color="primary" dark large @click.stop="registerWeaverDialog = true">위버 등록</v-btn>
-            <v-btn color="primary" dark large @click.stop="deleteWeaverDialog = true">위버 삭제</v-btn>
+            <v-btn color="primary" dark large @click.stop="registerWeaverDialog=true">위버 등록</v-btn>
+            <v-btn color="primary" dark large @click.stop="deleteWeaverDialog=true">위버 삭제</v-btn>
 
             <v-dialog v-model="registerWeaverDialog" max-width="740px">
               <v-card>
@@ -22,10 +22,10 @@
                   <v-container grid-list-md>
                     <v-layout wrap>
                       <v-flex xs12>
-                        <v-text-field label="위버 이름을 입력하세요.." required></v-text-field>
+                        <v-text-field label="위버 이름을 입력하세요." required></v-text-field>
                       </v-flex>
                       <v-flex xs10>
-                        <v-text-field label="위버 위치를 가져오세요.." hint="Press the btn"></v-text-field>
+                        <v-text-field label="위버 위치를 가져오세요." hint="오른쪽 버튼을 눌러보세요"></v-text-field>
                       </v-flex>
                       <v-flex xs2>
                         <v-btn color="primary">GET</v-btn>
@@ -61,7 +61,7 @@
               </v-card>
             </v-dialog>
           </v-layout>
-        </v-list-tile>-->
+        </v-list-tile>
 
         <v-list-group class="marginTop">
           <v-list-tile slot="activator">
@@ -95,7 +95,7 @@
           <v-flex column>
             <div class="marginTop2">
               <v-tooltip bottom>
-                <v-btn slot="activator" @click.stop="adjustCapsuleDropCycleDialog = true">캡슐 투하 주기 설정</v-btn>
+                <v-btn slot="activator" @click.stop="adjustCapsuleDropCycleDialog=true">캡슐 투하 주기 설정</v-btn>
                 <span>캡슐을 자동으로 투하하기 위한 설정입니다.</span>
               </v-tooltip>
             </div>
@@ -109,8 +109,8 @@
 
           <v-dialog v-model="adjustCapsuleDropCycleDialog" max-width="740px">
             <v-card>
-              <v-card-title class="capsuleTitle">
-                캡슐 투하 주기 설정
+              <v-card-title>
+                <span class="headline">캡슐 투하 주기 설정</span>
               </v-card-title>
               <v-card-text>
                 <v-switch
@@ -148,14 +148,29 @@
       <v-toolbar-title style="width: 300px" class="ml-0 pl-3">
         <span id="title" class="hidden-sm-and-down">WEAVER 관리자</span>
       </v-toolbar-title>
+
       <v-spacer></v-spacer>
-      <v-btn icon>
-        <v-icon size="18px">fa-info-circle</v-icon>
-      </v-btn>
-      <v-btn icon>
-        <v-icon size="18px">fa-cog</v-icon>
-      </v-btn>
+
+      <v-layout row justify-end>
+        <v-btn icon @click.stop="infoDialog=true"><v-icon size="18px">fa-info-circle</v-icon></v-btn>
+
+        <v-dialog v-model="infoDialog" max-width="740px">
+          <v-card>
+            <v-card-title>
+              <span class="headline">WAEVER 가이드</span>
+            </v-card-title>
+            <v-card-text>
+              WEAVER(이하 위버)는 바다 생태계를 파괴하는 백화현상을 막고, 없애, 산호가 다시 살 수 있는 환경을 조성하는 로봇입니다. 또한 해양 쓰레기를 청소하고, 인명피해를 줄이기 위한 인명구조의 역할을 수행합니다.<br>자세한 사항은 <a href="http://b.taevel.kr/posts/iroc_2018/" target="blank">여기</a>를 참고하세요.
+            </v-card-text>
+            <v-card-actions>
+              <v-spacer></v-spacer>
+              <v-btn color="primary" flat @click.stop="infoDialog=false">닫기</v-btn>
+            </v-card-actions>
+          </v-card>
+        </v-dialog>
+      </v-layout>
     </v-toolbar>
+
     <v-content>
       <v-container fluid fill-height>
         <v-layout>
@@ -196,6 +211,9 @@ export default {
   data: () => ({
     drawer: null,
     adjustCapsuleDropCycleDialog: false,
+    registerWeaverDialog: false,
+    deleteWeaverDialog: false,
+    infoDialog: false,
     capsuleControlArr: {text: '1일(권장)', millisec: 86400000},
     timesDI: [
       {text: "테스트 5초", millisec: 5000},

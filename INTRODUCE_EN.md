@@ -17,7 +17,7 @@ Therefore, we decided to make robots like this because we thought we needed to c
 
 ### Goal
 
-It prevents the department that destroys marine life's ecosystem, creates an environment where coral reefs can live again, and cleans the ocean waste by floating it on the ocean.<br>
+It prevents the department that destroys marine ecosystem, creates an environment where coral reefs can live again, and cleans the ocean waste by floating it on the ocean.<br>
 It restores the marine ecosystem.
 
 ### Function

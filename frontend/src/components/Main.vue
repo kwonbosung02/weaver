@@ -8,10 +8,10 @@
     >
 
       <v-list>
-        <v-list-tile>
+        <!--<v-list-tile>
           <v-layout row justify-center>
-            <v-btn color="primary" dark large @click.stop="registerWeaverDialog=true">위버 등록</v-btn>
-            <v-btn color="primary" dark large @click.stop="deleteWeaverDialog=true">위버 삭제</v-btn>
+            <v-btn color="primary" dark large ripple @click.stop="registerWeaverDialog=true">위버 등록</v-btn>
+            <v-btn color="primary" dark large ripple @click.stop="deleteWeaverDialog=true">위버 삭제</v-btn>
 
             <v-dialog v-model="registerWeaverDialog" max-width="740px">
               <v-card>
@@ -28,15 +28,15 @@
                         <v-text-field label="위버 위치를 가져오세요." hint="오른쪽 버튼을 눌러보세요"></v-text-field>
                       </v-flex>
                       <v-flex xs2>
-                        <v-btn color="primary">GET</v-btn>
+                        <v-btn color="primary" ripple>GET</v-btn>
                       </v-flex>
                     </v-layout>
                   </v-container>
                 </v-card-text>
                 <v-card-actions>
                   <v-spacer></v-spacer>
-                  <v-btn color="primary" flat @click.stop="registerWeaverDialog=false">닫기</v-btn>
-                  <v-btn color="primary" flat @click.stop="registerWeaverDialog=false">등록</v-btn>
+                  <v-btn color="primary" flat ripple @click.stop="registerWeaverDialog=false">닫기</v-btn>
+                  <v-btn color="primary" flat ripple @click.stop="registerWeaverDialog=false">등록</v-btn>
                 </v-card-actions>
               </v-card>
             </v-dialog>
@@ -55,13 +55,13 @@
                 </v-card-text>
                 <v-card-actions>
                   <v-spacer></v-spacer>
-                  <v-btn color="primary" flat @click.stop="deleteWeaverDialog=false">닫기</v-btn>
-                  <v-btn color="primary" flat @click.stop="deleteWeaverDialog=false">삭제</v-btn>
+                  <v-btn color="primary" flat ripple @click.stop="deleteWeaverDialog=false">닫기</v-btn>
+                  <v-btn color="primary" flat ripple @click.stop="deleteWeaverDialog=false">삭제</v-btn>
                 </v-card-actions>
               </v-card>
             </v-dialog>
           </v-layout>
-        </v-list-tile>
+        </v-list-tile>-->
 
         <v-list-group class="marginTop">
           <v-list-tile slot="activator">
@@ -77,6 +77,7 @@
             v-for="(item, i) in items"
             :key="i"
             @click=""
+            ripple
           >
             <li>
               <v-list-tile-title v-text="item"></v-list-tile-title>
@@ -95,13 +96,13 @@
           <v-flex column>
             <div class="marginTop2">
               <v-tooltip bottom>
-                <v-btn slot="activator" @click.stop="adjustCapsuleDropCycleDialog=true">캡슐 투하 주기 설정</v-btn>
+                <v-btn ripple slot="activator" @click.stop="adjustCapsuleDropCycleDialog=true">캡슐 투하 주기 설정</v-btn>
                 <span>캡슐을 자동으로 투하하기 위한 설정입니다.</span>
               </v-tooltip>
             </div>
             <div>
               <v-tooltip bottom>
-                <v-btn slot="activator" @click="smControl()">캡슐 투하</v-btn>
+                <v-btn ripple slot="activator" @click="smControl()">캡슐 투하</v-btn>
                 <span>클릭 시 캡슐을 수동으로 투하합니다.</span>
               </v-tooltip>
             </div>
@@ -129,8 +130,8 @@
               </v-card-text>
               <v-card-actions>
                 <v-spacer></v-spacer>
-                <v-btn color="primary" flat @click.stop="adjustCapsuleDropCycleDialog=false">닫기</v-btn>
-                <v-btn color="primary" flat @click="capsuleControl()">저장</v-btn>
+                <v-btn color="primary" flat ripple @click.stop="adjustCapsuleDropCycleDialog=false">닫기</v-btn>
+                <v-btn color="primary" flat ripple @click="capsuleControl()">저장</v-btn>
               </v-card-actions>
             </v-card>
           </v-dialog>

@@ -76,7 +76,7 @@
           <v-list-tile
             v-for="(item, i) in items"
             :key="i"
-            @click=""
+            @click="item"
             ripple
           >
             <li>
@@ -230,6 +230,7 @@ let switchRef = firebase.database().ref("switch")
 switchRef.set(0)
 
 let check = 0
+let lifeNum = 0
 
 export default {
   components: {
@@ -282,9 +283,11 @@ export default {
     },
     settingControl () {
       if (this.$data.savingLifeStatus == true) {
+        switchRef.set(0)
         switchRef.on('value', function() {
           if (check >= 1) {
-            alert('인명구조가 필요한 상황입니다! 위치를 확인하세요!')
+            lifeNum++
+            if (confirm('총 ' + lifeNum + '명이 인명구조가 필요한 상황입니다!\n위치를 확인하세요!')) document.location.href = "#/savingLife"
             check++
           }
           check++
@@ -293,6 +296,7 @@ export default {
         switchRef.off()
         switchRef.set(0)
         check = 0
+        lifeNum = 0
         alert('인명구조 서비스를 종료하였습니다.')
       }
     }

@@ -154,6 +154,7 @@
 
       <v-layout row justify-end>
         <v-btn icon @click.stop="infoDialog=true"><v-icon size="18px">fa-info-circle</v-icon></v-btn>
+        <v-btn icon @click.stop="settingDialog=true"><v-icon size="18px">fa-cog</v-icon></v-btn>
 
         <v-dialog v-model="infoDialog" max-width="740px">
           <v-card>
@@ -166,6 +167,26 @@
             <v-card-actions>
               <v-spacer></v-spacer>
               <v-btn color="primary" flat @click.stop="infoDialog=false">닫기</v-btn>
+            </v-card-actions>
+          </v-card>
+        </v-dialog>
+
+        <v-dialog v-model="settingDialog" max-width="740px">
+          <v-card>
+            <v-card-title>
+              <span class="headline">WAEVER 설정</span>
+            </v-card-title>
+            <v-card-text>
+              <v-switch
+                :label="`인명구조 서비스 : ${savingLifeStatus.toString()}`"
+                v-model="savingLifeStatus"
+                color="primary"
+              ></v-switch>
+            </v-card-text>
+            <v-card-actions>
+              <v-spacer></v-spacer>
+              <v-btn color="primary" flat @click.stop="settingDialog=false">닫기</v-btn>
+              <v-btn color="primary" flat @click="settingControl()">저장</v-btn>
             </v-card-actions>
           </v-card>
         </v-dialog>
@@ -196,14 +217,19 @@ let config = {
 }
 firebase.initializeApp(config)
 
-var database = firebase.database()
+let database = firebase.database()
 
-var smStatusRef = firebase.database().ref("smStatus")
+let smStatusRef = firebase.database().ref("smStatus")
 smStatusRef.set(0)
-var smStatus
+let smStatus
 
-var capsuleRef = firebase.database().ref("capsule")
+let capsuleRef = firebase.database().ref("capsule")
 capsuleRef.set(0)
+
+let switchRef = firebase.database().ref("switch")
+switchRef.set(0)
+
+let check = 0
 
 export default {
   components: {
@@ -215,6 +241,7 @@ export default {
     registerWeaverDialog: false,
     deleteWeaverDialog: false,
     infoDialog: false,
+    settingDialog: false,
     capsuleControlArr: {text: '1일(권장)', millisec: 86400000},
     timesDI: [
       {text: "테스트 5초", millisec: 5000},
@@ -225,6 +252,7 @@ export default {
       {text: "3일", millisec: 259200000}
     ],
     capsuleStatus: false,
+    savingLifeStatus: false,
     items: ["WEAVER-A"]
   }),
   props: {
@@ -249,7 +277,23 @@ export default {
         alert('캡슐 자동 투하 시기 조정을 완료하였습니다.')
       } else {
         capsuleRef.set(0)
-        alert('캡슐 자동 투하  기능을 종료하였습니다.')
+        alert('캡슐 자동 투하 기능을 종료하였습니다.')
+      }
+    },
+    settingControl () {
+      if (this.$data.savingLifeStatus == true) {
+        switchRef.on('value', function() {
+          if (check >= 1) {
+            alert('인명구조가 필요한 상황입니다! 위치를 확인하세요!')
+            check++
+          }
+          check++
+        })
+      } else {
+        switchRef.off()
+        switchRef.set(0)
+        check = 0
+        alert('인명구조 서비스를 종료하였습니다.')
       }
     }
   }

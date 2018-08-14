@@ -3,6 +3,7 @@ import Router from 'vue-router'
 
 import Index from '@/components/Index'
 import Main from '@/components/Main'
+import SavingLife from '@/components/savingLife'
 import Donate from '@/components/Donate'
 import Purchase from '@/components/Purchase'
 
@@ -19,6 +20,11 @@ export default new Router({
       path: '/main',
       name: 'main',
       component: Main
+    },
+    {
+      path: '/savinglife',
+      name: 'savinglife',
+      component: SavingLife
     },
     {
       path: '/donate',

@@ -226,8 +226,8 @@ let smStatus
 let capsuleRef = firebase.database().ref("capsule")
 capsuleRef.set(0)
 
-let switchRef = firebase.database().ref("switch")
-switchRef.set(0)
+let switchRef = firebase.database().ref("switch1")
+switchRef.set(-1)
 
 let check = 0
 let lifeNum = 0
@@ -261,7 +261,7 @@ export default {
   },
   methods: {
     smControl () {
-      var millisec = 500;
+      var millisec = 1000;
       setTimeout(function() {
         if (smStatus == 1) {
           smStatusRef.set(0)
@@ -283,7 +283,7 @@ export default {
     },
     settingControl () {
       if (this.$data.savingLifeStatus == true) {
-        switchRef.set(0)
+        switchRef.set(-1)
         switchRef.on('value', function() {
           if (check >= 1) {
             lifeNum++

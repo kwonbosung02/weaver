@@ -16,8 +16,3 @@ $ cd ../backend && yarn install && yarn start
 
 [MIT License](LICENSE)
 
-# Donate
-
-Please donate it.<br>
-KB Kookmin Bank 437102-04-041801 Taehoon Kwon<br>
-Your time and attention are also good contributions. I look forward to your participation.

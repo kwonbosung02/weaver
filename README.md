@@ -15,9 +15,3 @@ $ cd ../backend && yarn install && yarn start
 # 라이선스
 
 [MIT License](LICENSE)
-
-# 후원
-
-후원을 받고 있습니다.<br>
-여러분의 시간과 관심도 좋은 후원이 됩니다. 여러분의 참여를 기다립니다.<br>
-[후원 바로가기](https://taehoon.typeform.com/to/ixVDY4)

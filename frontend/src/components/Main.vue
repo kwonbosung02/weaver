@@ -285,7 +285,7 @@ export default {
       if (this.$data.savingLifeStatus == true) {
         switchRef.set(-1)
         switchRef.on('value', function() {
-          if (check >= 1) {
+          if (check >= 1 && lifeNum <= 3) {
             lifeNum++
             if (confirm('총 ' + lifeNum + '명이 인명구조가 필요한 상황입니다!\n위치를 확인하세요!')) document.location.href = "#/savingLife"
             check++
@@ -294,7 +294,7 @@ export default {
         })
       } else {
         switchRef.off()
-        switchRef.set(0)
+        switchRef.set(-1)
         check = 0
         lifeNum = 0
         alert('인명구조 서비스를 종료하였습니다.')
